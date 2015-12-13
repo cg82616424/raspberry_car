@@ -16,7 +16,6 @@ wheel::wheel(int index_1,int index_2)
 */
 int wheel::move(int direction)
 {
-    wiringPiSetup();
     pinMode(gpio_index_1,OUTPUT);
     pinMode(gpio_index_2,OUTPUT);
     //set gpio mode as output
@@ -33,7 +32,6 @@ int wheel::move(int direction)
 };
 int wheel::stop()
 {
-    wiringPiSetup();
     pinMode(gpio_index_1,OUTPUT);
     pinMode(gpio_index_2,OUTPUT);
     //set gpio mode as output
