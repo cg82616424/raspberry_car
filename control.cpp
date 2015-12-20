@@ -12,6 +12,7 @@ control::~control()
 {
 
 }
+/*control interface using ssh and kbd,just for test now*/
 int control::control_with_key_board()
 {
     cout<<"\t"<<"up down left right to control the car move,anykey to stop the car"<<endl;
@@ -35,6 +36,7 @@ int control::control_with_key_board()
     }
     return 0;
 }
+//control function
 int control::translate_kbd_to_action(int key)
 {
     switch (key) {
@@ -49,10 +51,10 @@ int control::translate_kbd_to_action(int key)
         break;
     case 115:
         car_1.move_backward();
-	break;
+        break;
     case 116:
-	car_1.stop();
-	break;
+        car_1.stop();
+        break;
     default:
         car_1.stop();
         break;
