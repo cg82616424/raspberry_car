@@ -23,12 +23,19 @@ communication::communication()
     }
 
 }
+
 void communication::process_conn_server(int s)
 {
     ssize_t size=0;
     char buffer[1024];
+    time_t  cur_tm;
+    time(&cur_tm);
+    double current_speed=car_control.cur_speed((int)cur_tm);
     while (true) {
         size=read(s,buffer,1024);
+        time(&cur_tm);
+        current_speed=car_control.cur_speed(int(cur_tm));
+
 	cout<<int(buffer[0])<<endl;
         if(size==0)
         {
@@ -38,6 +45,7 @@ void communication::process_conn_server(int s)
         //buffer 0 must be asdw or t,
         int return_val=car_control.translate_kbd_to_action(int(buffer[0]));
         buffer[0]=char(return_val);
+        gcvt(current_speed, 15, buffer);
         write(s, buffer, strlen(buffer)+1);
     }
 }

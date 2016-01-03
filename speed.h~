@@ -1,0 +1,14 @@
+class speed
+{
+public:
+    int left_gipo_index;
+    int right_gpio_index;
+    int left_speed;
+    int right_speed;
+    int speed_count[60];
+    void update_speed();
+    void (*p_get_speed)();
+    speed(int,int);
+    void get_speed();
+    virtual ~speed();
+};

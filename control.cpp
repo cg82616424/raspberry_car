@@ -7,10 +7,17 @@ using namespace std;
 control::control()
 {
     car_1.stop();
+
+
 }
 control::~control()
 {
 
+}
+double control::cur_speed(int utc)
+{
+
+    return car_1.get_speed(utc);
 }
 /*control interface using ssh and kbd,just for test now*/
 int control::control_with_key_board()

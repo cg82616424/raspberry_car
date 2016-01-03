@@ -1,10 +1,12 @@
 #include "car.h"
-car::car():right_back(4,5),right_front(0,1),left_back(2,3),left_front(6,21)
+car::car():right_back(4,5),right_front(0,1),left_back(2,3),left_front(6,23),car_speed(7,21)
 {
     right_back.stop();
     right_front.stop();
     left_front.stop();
     left_back.stop();
+    update_speed();
+
 }
 int car::move_forward()
 {
@@ -45,8 +47,23 @@ int car::stop()
     right_front.stop();
     left_front.stop();
     left_back.stop();
+    return 0;
+}
+int car::update_speed()
+{
+    t=new thread(speed::update_speed);
+    t->detach();
+    return 0;
+}
+double car::get_speed(int utc)
+{
+    utc-=1;
+
+    return speed::speed_count[utc%60];
 }
 car::~car()
 {
 
+    t->join();
+    delete t;
 }

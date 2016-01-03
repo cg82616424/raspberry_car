@@ -1,3 +1,4 @@
+#include <wiringPi.h>
 enum DIRECTION
 {
     FORWARD,

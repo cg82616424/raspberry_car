@@ -1,0 +1,28 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.69])
+AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
+AM_INIT_AUTOMAKE
+AC_CONFIG_SRCDIR([speed.cpp])
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_FILES([Makefile])
+# Checks for programs.
+AC_PROG_CXX
+AC_PROG_CC
+
+# Checks for libraries.
+
+# Checks for header files.
+AC_CHECK_HEADERS([arpa/inet.h stdlib.h string.h sys/socket.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_CHECK_HEADER_STDBOOL
+AC_TYPE_PID_T
+AC_TYPE_SSIZE_T
+CXXFLAGS="-std=c++0x -lwiringPi -lpthread"
+# Checks for library functions.
+AC_FUNC_FORK
+AC_CHECK_FUNCS([memset socket])
+
+AC_OUTPUT

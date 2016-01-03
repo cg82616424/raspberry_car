@@ -1,7 +1,7 @@
 #include "wheel.h"
 #include <iostream>
-#include <wiringPi.h>
 #include <unistd.h>
+#include <wiringPi.h>
 using namespace std;
 int wheel::direc=FORWARD;
 wheel::wheel(int index_1,int index_2)
@@ -29,6 +29,7 @@ int wheel::move(int direction)
         digitalWrite(gpio_index_1,LOW);
         digitalWrite(gpio_index_2, HIGH);
     }
+    return 0;
 };
 int wheel::stop()
 {
